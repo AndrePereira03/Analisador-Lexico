@@ -280,21 +280,20 @@ public class AFD {
 		char lido = s.getSimbolo();
 		ConjuntoTransicaoD fp = getFuncaoPrograma();
 
-		// Percorre o conjunto de transições usando o método correto: getElementos()
+		// percorre o conjunto de transições
 		for (Object obj : fp.getElementos()) {
 			TransicaoD t = (TransicaoD) obj;
 
 			if (t.getOrigem().igual(e)) {
 				char xmlSimbolo = t.getSimbolo().getSimbolo();
 
-				// Chamada para o seu Helper (Analisador)
 				if (xmlSimbolo == '@' && lexico.Analisador.isLetra(lido)) {
 					return t.getDestino();
 				}
 				else if (xmlSimbolo == '#' && lexico.Analisador.isDigito(lido)) {
 					return t.getDestino();
 				}
-				else if (xmlSimbolo == lido) {
+				else if (xmlSimbolo == lido && xmlSimbolo != '@' && xmlSimbolo != '#') {
 					return t.getDestino();
 				}
 			}

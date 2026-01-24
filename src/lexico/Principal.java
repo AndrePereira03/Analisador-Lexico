@@ -69,7 +69,7 @@ public class Principal {
 
             while (!resultado.equals("fim")) {
                 if (resultado.equals("erro")) {
-                    System.out.println("Erro: O token '" + token.trim() + "' não pertence à linguagem)");
+                    System.out.println("Erro: O token '" + token.trim() + "' não pertence à linguagem");
                 } else {
                     String nomeEstadoFinal = corrente.getNome();
 
