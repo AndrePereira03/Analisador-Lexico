@@ -20,7 +20,8 @@
         <elemento valor="U"/><elemento valor="V"/><elemento valor="W"/><elemento valor="X"/><elemento valor="Y"/><elemento valor="Z"/>
 
         //identificadores
-        <elemento valor="@"/> <elemento valor="#"/> </simbolos>
+        <elemento valor="@"/> <elemento valor="#"/> <elemento valor="!"/>
+    </simbolos>
 
     <estados>
         <elemento valor="1"/> <elemento valor="2"/> <elemento valor="3"/>
@@ -39,17 +40,21 @@
         <elemento origem="6" destino="6" simbolo="@"/>
         <elemento origem="6" destino="F_ID" simbolo=" "/>
 
-        <elemento origem="1" destino="5" simbolo="#"/>
-        <elemento origem="1" destino="2" simbolo="0"/> <elemento origem="5" destino="5" simbolo="#"/>
-        <elemento origem="5" destino="3" simbolo="."/>
+        <elemento origem="1" destino="5" simbolo="!"/>
+        <elemento origem="5" destino="5" simbolo="#"/>
+
+        <elemento origem="1" destino="2" simbolo="0"/>
+
         <elemento origem="2" destino="3" simbolo="."/>
+        <elemento origem="2" destino="F_NUM" simbolo=" "/>
         <elemento origem="3" destino="4" simbolo="#"/>
         <elemento origem="4" destino="4" simbolo="#"/>
-        <elemento origem="2" destino="F_NUM" simbolo=" "/>
-        <elemento origem="5" destino="F_NUM" simbolo=" "/>
         <elemento origem="4" destino="F_NUM" simbolo=" "/>
+        <elemento origem="5" destino="F_NUM" simbolo=" "/>
 
-        <elemento origem="6" destino="7" simbolo="#"/> <elemento origem="5" destino="7" simbolo="@"/> <elemento origem="7" destino="7" simbolo="@"/>
+        <elemento origem="6" destino="7" simbolo="#"/>
+        <elemento origem="5" destino="7" simbolo="@"/>
+        <elemento origem="7" destino="7" simbolo="@"/>
         <elemento origem="7" destino="7" simbolo="#"/>
         <elemento origem="7" destino="F_CONCAT" simbolo=" "/>
     </funcaoPrograma>

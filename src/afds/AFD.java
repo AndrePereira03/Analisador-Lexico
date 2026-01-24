@@ -293,7 +293,10 @@ public class AFD {
 				else if (xmlSimbolo == '#' && lexico.Analisador.isDigito(lido)) {
 					return t.getDestino();
 				}
-				else if (xmlSimbolo == lido && xmlSimbolo != '@' && xmlSimbolo != '#') {
+				else if (xmlSimbolo == '!' && lexico.Analisador.isNumero(lido)) {
+					return t.getDestino();
+				}
+				else if (xmlSimbolo == lido && xmlSimbolo != '@' && xmlSimbolo != '#' && xmlSimbolo != '!') {
 					return t.getDestino();
 				}
 			}
