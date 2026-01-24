@@ -31,6 +31,7 @@ public class Principal {
     public Simbolo proximo(BufferedReader reader) throws IOException {
         int charLido;
         while ((charLido = reader.read()) != -1) {
+            if (charLido == 13) continue;
             if (charLido == 10) {
                 return new Simbolo(' ');
             }
