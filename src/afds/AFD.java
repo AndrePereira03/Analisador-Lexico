@@ -13,6 +13,7 @@ import java.util.Iterator;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import lexico.Analisador;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -257,7 +258,7 @@ public class AFD {
 			}
 		}
 	}
-	// Limpa a estrutura de dados do AFD
+	// limpa a estrutura de dados do AFD
 	private void limpa() {
 		// limpa Alfabeto
 		simbolos.limpar();
@@ -275,16 +276,29 @@ public class AFD {
 	* @param Estado estado onde iniciar� o processamento
 	* @param Simbolo simbolo a ser processado
 	*/
-	public Estado p (Estado e, Simbolo s){
-		ConjuntoTransicaoD fp;
-		TransicaoD t;
-		fp = getFuncaoPrograma();
-		for (Iterator iter = fp.getElementos().iterator(); iter.hasNext();) {
-			t = (TransicaoD) iter.next();
-			if (t.getOrigem().igual(e) && t.getSimbolo().igual(s))
-				return t.getDestino();
+	public Estado p(Estado e, Simbolo s) {
+		char lido = s.getSimbolo();
+		ConjuntoTransicaoD fp = getFuncaoPrograma();
+
+		// Percorre o conjunto de transições usando o método correto: getElementos()
+		for (Object obj : fp.getElementos()) {
+			TransicaoD t = (TransicaoD) obj;
+
+			if (t.getOrigem().igual(e)) {
+				char xmlSimbolo = t.getSimbolo().getSimbolo();
+
+				// Chamada para o seu Helper (Analisador)
+				if (xmlSimbolo == '@' && lexico.Analisador.isLetra(lido)) {
+					return t.getDestino();
+				}
+				else if (xmlSimbolo == '#' && lexico.Analisador.isDigito(lido)) {
+					return t.getDestino();
+				}
+				else if (xmlSimbolo == lido) {
+					return t.getDestino();
+				}
+			}
 		}
-		
 		return null;
 	}
 	/**

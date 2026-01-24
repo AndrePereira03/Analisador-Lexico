@@ -1,11 +1,9 @@
 package lexico;
+
 import afds.*;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Principal {
 
@@ -19,34 +17,31 @@ public class Principal {
     }
 
     public static void main(String[] args) {
-        Principal t;
         try {
-            t = new Principal();
+            Principal t = new Principal();
             t.inicio();
         } catch (Exception ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 
+    // filtra caracteres e trata quebras de linha como espaço
     public Simbolo proximo(BufferedReader reader) throws IOException {
         int charLido;
         while ((charLido = reader.read()) != -1) {
-            if (charLido == 13) continue;
-            if (charLido == 10) return new Simbolo(' ');
+            if (charLido == 13) continue; // Ignora \r do Windows
+            if (charLido == 10) return new Simbolo(' '); // Enter = Espaço
             return new Simbolo((char) charLido);
         }
         return null;
     }
 
-    // Le um token retona 1: se sucesso e 0: se erro -1 se fim
-    @SuppressWarnings("empty-statement")
     public String lexico(BufferedReader r) throws IOException {
         token = "";
         corrente = a.getEstadoInicial();
-
         Simbolo p = proximo(r);
 
-        // IGNORA ESPAÇOS ANTES DA PALAVRA
+        // pula espaços iniciais
         while (p != null && p.getSimbolo() == ' ' && corrente.igual(a.getEstadoInicial())) {
             p = proximo(r);
         }
@@ -56,28 +51,40 @@ public class Principal {
         while (p != null) {
             token = token + p.toString();
             corrente = a.p(corrente, p);
+
             if (corrente == null) return "erro";
 
-            if (a.getEstadosFinais().pertence(corrente)) return token;
+            // Se atingir um estado final, retorna o token encontrado
+            if (a.getEstadosFinais().pertence(corrente)) {
+                return token.trim();
+            }
             p = proximo(r);
         }
         return "fim";
     }
 
-    // chama lexico até chegar no final de arquivo ou erro léxico
     public void inicio() {
         try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
             String resultado = lexico(reader);
-            while (!(resultado.equals("erro") || resultado.equals("fim"))) {
-                String tipo = "";
-                // Verifica em qual estado final o autômato parou
-                if (corrente.getNome().equals("F_NUM")) tipo = "Número";
-                else if (corrente.getNome().equals("F_ID")) tipo = "Identificador";
 
-                System.out.println("Achou: " + resultado.trim() + " [" + tipo + "]");
+            while (!resultado.equals("fim")) {
+                if (resultado.equals("erro")) {
+                    System.out.println("Erro: O token '" + token.trim() + "' não pertence à linguagem)");
+                } else {
+                    String nomeEstadoFinal = corrente.getNome();
+
+                    if (nomeEstadoFinal.equals("F_NUM")) {
+                        System.out.println("'" + resultado + "'" + " é um número válido!");
+                    }
+                    else if (nomeEstadoFinal.equals("F_ID")) {
+                        System.out.println("'" + resultado + "'" + " é uma palavra válida!");
+                    }
+                    else if (nomeEstadoFinal.equals("F_CONCAT")) {
+                        System.out.println("'" + resultado + "'" + " é uma concatenação entre letras e números");
+                    }
+                }
                 resultado = lexico(reader);
             }
-            System.out.println("Fim da análise: " + resultado);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
