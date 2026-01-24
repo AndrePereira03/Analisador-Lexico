@@ -1,96 +1,52 @@
 <AFD>
+    <simbolos>
+        <elemento valor= "0"/><elemento valor= "1"/><elemento valor= "2"/><elemento valor= "3"/><elemento valor= "4"/>
+        <elemento valor= "5"/><elemento valor= "6"/><elemento valor= "7"/><elemento valor= "8"/><elemento valor= "9"/>
+        <elemento valor= "."/><elemento valor= " "/>
+        <elemento valor= "a"/><elemento valor= "b"/><elemento valor= "c"/><elemento valor= "d"/><elemento valor= "e"/>
+        <elemento valor= "f"/><elemento valor= "g"/><elemento valor= "h"/><elemento valor= "i"/><elemento valor= "j"/>
+        <elemento valor= "k"/><elemento valor= "l"/><elemento valor= "m"/><elemento valor= "n"/><elemento valor= "o"/>
+        <elemento valor= "p"/><elemento valor= "q"/><elemento valor= "r"/><elemento valor= "s"/><elemento valor= "t"/>
+        <elemento valor= "u"/><elemento valor= "v"/><elemento valor= "w"/><elemento valor= "x"/><elemento valor= "y"/><elemento valor= "z"/>
+        <elemento valor= "A"/><elemento valor= "B"/><elemento valor= "C"/><elemento valor= "D"/><elemento valor= "E"/>
+        <elemento valor= "F"/><elemento valor= "G"/><elemento valor= "H"/><elemento valor= "I"/><elemento valor= "J"/>
+        <elemento valor= "K"/><elemento valor= "L"/><elemento valor= "M"/><elemento valor= "N"/><elemento valor= "O"/>
+        <elemento valor= "P"/><elemento valor= "Q"/><elemento valor= "R"/><elemento valor= "S"/><elemento valor= "T"/>
+        <elemento valor= "U"/><elemento valor= "V"/><elemento valor= "W"/><elemento valor= "X"/><elemento valor= "Y"/><elemento valor= "Z"/>
+    </simbolos>
 
-   <simbolos>
-       <elemento valor= "0"/>
-       <elemento valor= "1"/>
-       <elemento valor= "2"/>
-       <elemento valor= "3"/>
-       <elemento valor= "4"/>
-       <elemento valor= "5"/>
-       <elemento valor= "6"/>
-       <elemento valor= "7"/>
-       <elemento valor= "8"/>
-       <elemento valor= "9"/>
-       <elemento valor= "."/>
-       <elemento valor= " "/>
-       <elemento valor= "\n"/>
-   </simbolos>
+    <estados>
+        <elemento valor= "1"/> <elemento valor= "2"/> <elemento valor= "3"/> <elemento valor= "4"/> <elemento valor= "5"/> <elemento valor= "6"/> <elemento valor= "F_NUM"/> <elemento valor= "F_ID"/>  </estados>
 
-   <estados>
-       <elemento valor= "1"/>
-       <elemento valor= "2"/>
-       <elemento valor= "3"/>
-       <elemento valor= "4"/>
-       <elemento valor= "5"/>
-       <elemento valor= "F"/>
-   </estados>
+    <estadosFinais>
+        <elemento valor="F_NUM"/>
+        <elemento valor="F_ID"/>
+    </estadosFinais>
 
-   <estadosFinais>
-       <elemento valor="F"/>
-   </estadosFinais>
+    <funcaoPrograma>
+        <elemento origem="1" destino="2" simbolo="0"/>
+        <elemento origem="1" destino="5" simbolo="1"/><elemento origem="1" destino="5" simbolo="2"/><elemento origem="1" destino="5" simbolo="3"/>
+        <elemento origem="1" destino="5" simbolo="4"/><elemento origem="1" destino="5" simbolo="5"/><elemento origem="1" destino="5" simbolo="6"/>
+        <elemento origem="1" destino="5" simbolo="7"/><elemento origem="1" destino="5" simbolo="8"/><elemento origem="1" destino="5" simbolo="9"/>
 
-   <funcaoPrograma>
-       <elemento origem="1"  destino="5" simbolo="1"/>
-       <elemento origem="1"  destino="5" simbolo="2"/>
-       <elemento origem="1"  destino="5" simbolo="3"/>
-       <elemento origem="1"  destino="5" simbolo="4"/>
-       <elemento origem="1"  destino="5" simbolo="5"/>
-       <elemento origem="1"  destino="5" simbolo="6"/>
-       <elemento origem="1"  destino="5" simbolo="7"/>
-       <elemento origem="1"  destino="5" simbolo="8"/>
-       <elemento origem="1"  destino="5" simbolo="9"/>
-       
-       <elemento origem="1"  destino="2" simbolo="0"/>
-       
-       <elemento origem="2"  destino="3" simbolo="."/>
-       
-       <elemento origem="5"  destino="3" simbolo="."/>
-       
-       <elemento origem="5"  destino="5" simbolo="1"/>
-       <elemento origem="5"  destino="5" simbolo="2"/>
-       <elemento origem="5"  destino="5" simbolo="3"/>
-       <elemento origem="5"  destino="5" simbolo="4"/>
-       <elemento origem="5"  destino="5" simbolo="5"/>
-       <elemento origem="5"  destino="5" simbolo="6"/>
-       <elemento origem="5"  destino="5" simbolo="7"/>
-       <elemento origem="5"  destino="5" simbolo="8"/>
-       <elemento origem="5"  destino="5" simbolo="9"/>
-       <elemento origem="5"  destino="5" simbolo="0"/>
-       
-       <elemento origem="4"  destino="4" simbolo="1"/>
-       <elemento origem="4"  destino="4" simbolo="2"/>
-       <elemento origem="4"  destino="4" simbolo="3"/>
-       <elemento origem="4"  destino="4" simbolo="4"/>
-       <elemento origem="4"  destino="4" simbolo="5"/>
-       <elemento origem="4"  destino="4" simbolo="6"/>
-       <elemento origem="4"  destino="4" simbolo="7"/>
-       <elemento origem="4"  destino="4" simbolo="8"/>
-       <elemento origem="4"  destino="4" simbolo="9"/>
-       <elemento origem="4"  destino="4" simbolo="0"/>
-       
-       <elemento origem="3"  destino="4" simbolo="1"/>
-       <elemento origem="3"  destino="4" simbolo="2"/>
-       <elemento origem="3"  destino="4" simbolo="3"/>
-       <elemento origem="3"  destino="4" simbolo="4"/>
-       <elemento origem="3"  destino="4" simbolo="5"/>
-       <elemento origem="3"  destino="4" simbolo="6"/>
-       <elemento origem="3"  destino="4" simbolo="7"/>
-       <elemento origem="3"  destino="4" simbolo="8"/>
-       <elemento origem="3"  destino="4" simbolo="9"/>
-       <elemento origem="3"  destino="4" simbolo="0"/>
-       
-       <elemento origem="4"  destino="F" simbolo=" "/>
-       <elemento origem="4"  destino="F" simbolo="\n"/>
+        <elemento origem="5" destino="5" simbolo="0"/><elemento origem="5" destino="5" simbolo="1"/><elemento origem="5" destino="5" simbolo="2"/>
+        <elemento origem="5" destino="5" simbolo="3"/><elemento origem="5" destino="5" simbolo="4"/><elemento origem="5" destino="5" simbolo="5"/>
+        <elemento origem="5" destino="5" simbolo="6"/><elemento origem="5" destino="5" simbolo="7"/><elemento origem="5" destino="5" simbolo="8"/><elemento origem="5" destino="5" simbolo="9"/>
 
-       
-       <elemento origem="2"  destino="F" simbolo=" "/>
-       <elemento origem="2"  destino="F" simbolo="\n"/>
+        <elemento origem="2" destino="3" simbolo="."/>
+        <elemento origem="5" destino="3" simbolo="."/>
+        <elemento origem="3" destino="4" simbolo="0"/><elemento origem="3" destino="4" simbolo="1"/><elemento origem="3" destino="4" simbolo="2"/><elemento origem="3" destino="4" simbolo="3"/><elemento origem="3" destino="4" simbolo="4"/><elemento origem="3" destino="4" simbolo="5"/><elemento origem="3" destino="4" simbolo="6"/><elemento origem="3" destino="4" simbolo="7"/><elemento origem="3" destino="4" simbolo="8"/><elemento origem="3" destino="4" simbolo="9"/>
+        <elemento origem="4" destino="4" simbolo="0"/><elemento origem="4" destino="4" simbolo="1"/><elemento origem="4" destino="4" simbolo="2"/><elemento origem="4" destino="4" simbolo="3"/><elemento origem="4" destino="4" simbolo="4"/><elemento origem="4" destino="4" simbolo="5"/><elemento origem="4" destino="4" simbolo="6"/><elemento origem="4" destino="4" simbolo="7"/><elemento origem="4" destino="4" simbolo="8"/><elemento origem="4" destino="4" simbolo="9"/>
 
-       <elemento origem="5"  destino="F" simbolo=" "/>
-       <elemento origem="5"  destino="F" simbolo="\n"/>
+        <elemento origem="1" destino="6" simbolo="a"/><elemento origem="1" destino="6" simbolo="b"/><elemento origem="1" destino="6" simbolo="c"/><elemento origem="1" destino="6" simbolo="d"/><elemento origem="1" destino="6" simbolo="e"/><elemento origem="1" destino="6" simbolo="f"/><elemento origem="1" destino="6" simbolo="g"/><elemento origem="1" destino="6" simbolo="h"/><elemento origem="1" destino="6" simbolo="i"/><elemento origem="1" destino="6" simbolo="j"/><elemento origem="1" destino="6" simbolo="k"/><elemento origem="1" destino="6" simbolo="l"/><elemento origem="1" destino="6" simbolo="m"/><elemento origem="1" destino="6" simbolo="n"/><elemento origem="1" destino="6" simbolo="o"/><elemento origem="1" destino="6" simbolo="p"/><elemento origem="1" destino="6" simbolo="q"/><elemento origem="1" destino="6" simbolo="r"/><elemento origem="1" destino="6" simbolo="s"/><elemento origem="1" destino="6" simbolo="t"/><elemento origem="1" destino="6" simbolo="u"/><elemento origem="1" destino="6" simbolo="v"/><elemento origem="1" destino="6" simbolo="w"/><elemento origem="1" destino="6" simbolo="x"/><elemento origem="1" destino="6" simbolo="y"/><elemento origem="1" destino="6" simbolo="z"/>
+        <elemento origem="1" destino="6" simbolo="A"/><elemento origem="1" destino="6" simbolo="B"/><elemento origem="1" destino="6" simbolo="C"/><elemento origem="1" destino="6" simbolo="D"/><elemento origem="1" destino="6" simbolo="E"/><elemento origem="1" destino="6" simbolo="F"/><elemento origem="1" destino="6" simbolo="G"/><elemento origem="1" destino="6" simbolo="H"/><elemento origem="1" destino="6" simbolo="I"/><elemento origem="1" destino="6" simbolo="J"/><elemento origem="1" destino="6" simbolo="K"/><elemento origem="1" destino="6" simbolo="L"/><elemento origem="1" destino="6" simbolo="M"/><elemento origem="1" destino="6" simbolo="N"/><elemento origem="1" destino="6" simbolo="O"/><elemento origem="1" destino="6" simbolo="P"/><elemento origem="1" destino="6" simbolo="Q"/><elemento origem="1" destino="6" simbolo="R"/><elemento origem="1" destino="6" simbolo="S"/><elemento origem="1" destino="6" simbolo="T"/><elemento origem="1" destino="6" simbolo="U"/><elemento origem="1" destino="6" simbolo="V"/><elemento origem="1" destino="6" simbolo="W"/><elemento origem="1" destino="6" simbolo="X"/><elemento origem="1" destino="6" simbolo="Y"/><elemento origem="1" destino="6" simbolo="Z"/>
 
-   </funcaoPrograma>
+        <elemento origem="6" destino="6" simbolo="a"/><elemento origem="6" destino="6" simbolo="b"/><elemento origem="6" destino="6" simbolo="c"/><elemento origem="6" destino="6" simbolo="d"/><elemento origem="6" destino="6" simbolo="0"/><elemento origem="6" destino="6" simbolo="1"/><elemento origem="6" destino="6" simbolo="2"/><elemento origem="6" destino="6" simbolo="3"/>
+        <elemento origem="2" destino="F_NUM" simbolo=" "/>
+        <elemento origem="4" destino="F_NUM" simbolo=" "/>
+        <elemento origem="5" destino="F_NUM" simbolo=" "/>
+        <elemento origem="6" destino="F_ID" simbolo=" "/>
+    </funcaoPrograma>
 
-   <estadoInicial valor= "1"/>
-
+    <estadoInicial valor= "1"/>
 </AFD>
