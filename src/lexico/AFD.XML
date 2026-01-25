@@ -42,6 +42,7 @@
 
         <elemento origem="1" destino="5" simbolo="!"/>
         <elemento origem="5" destino="5" simbolo="#"/>
+        <elemento origem="5" destino="3" simbolo="."/>
 
         <elemento origem="1" destino="2" simbolo="0"/>
 
