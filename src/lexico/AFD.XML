@@ -43,19 +43,16 @@
         <elemento origem="1" destino="5" simbolo="!"/>
         <elemento origem="5" destino="5" simbolo="#"/>
         <elemento origem="5" destino="3" simbolo="."/>
+        <elemento origem="5" destino="F_NUM" simbolo=" "/>
 
         <elemento origem="1" destino="2" simbolo="0"/>
-
-        <elemento origem="2" destino="3" simbolo="."/>
-        <elemento origem="2" destino="F_NUM" simbolo=" "/>
-        <elemento origem="3" destino="4" simbolo="#"/>
+        <elemento origem="2" destino="F_NUM" simbolo=" "/> <elemento origem="2" destino="3" simbolo="."/>   <elemento origem="3" destino="4" simbolo="#"/>
         <elemento origem="4" destino="4" simbolo="#"/>
         <elemento origem="4" destino="F_NUM" simbolo=" "/>
-        <elemento origem="5" destino="F_NUM" simbolo=" "/>
 
         <elemento origem="6" destino="7" simbolo="#"/>
         <elemento origem="5" destino="7" simbolo="@"/>
-        <elemento origem="7" destino="7" simbolo="@"/>
+        <elemento origem="2" destino="7" simbolo="@"/> <elemento origem="7" destino="7" simbolo="@"/>
         <elemento origem="7" destino="7" simbolo="#"/>
         <elemento origem="7" destino="F_CONCAT" simbolo=" "/>
     </funcaoPrograma>

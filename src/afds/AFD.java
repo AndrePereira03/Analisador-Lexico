@@ -277,28 +277,20 @@ public class AFD {
 	* @param Simbolo simbolo a ser processado
 	*/
 	public Estado p(Estado e, Simbolo s) {
+		if (e == null || s == null) return null;
 		char lido = s.getSimbolo();
-		ConjuntoTransicaoD fp = getFuncaoPrograma();
 
-		// percorre o conjunto de transições
-		for (Object obj : fp.getElementos()) {
+		for (Object obj : funcaoPrograma.getElementos()) {
 			TransicaoD t = (TransicaoD) obj;
 
 			if (t.getOrigem().igual(e)) {
 				char xmlSimbolo = t.getSimbolo().getSimbolo();
 
-				if (xmlSimbolo == '@' && lexico.Analisador.isLetra(lido)) {
-					return t.getDestino();
-				}
-				else if (xmlSimbolo == '#' && lexico.Analisador.isDigito(lido)) {
-					return t.getDestino();
-				}
-				else if (xmlSimbolo == '!' && lexico.Analisador.isNumero(lido)) {
-					return t.getDestino();
-				}
-				else if (xmlSimbolo == lido && xmlSimbolo != '@' && xmlSimbolo != '#' && xmlSimbolo != '!') {
-					return t.getDestino();
-				}
+				if (xmlSimbolo == '@' && lexico.Analisador.isLetra(lido)) return t.getDestino();
+				if (xmlSimbolo == '#' && lexico.Analisador.isDigito(lido)) return t.getDestino();
+				if (xmlSimbolo == '!' && lexico.Analisador.isNumero(lido)) return t.getDestino();
+
+				if (xmlSimbolo == lido) return t.getDestino();
 			}
 		}
 		return null;

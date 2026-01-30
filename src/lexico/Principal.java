@@ -41,25 +41,46 @@ public class Principal {
         corrente = a.getEstadoInicial();
         Simbolo p = proximo(r);
 
-        // pula espaços iniciais
+        // Pula espaços e quebras de linha iniciais
         while (p != null && p.getSimbolo() == ' ' && corrente.igual(a.getEstadoInicial())) {
             p = proximo(r);
         }
 
         if (p == null) return "fim";
 
+        boolean erroDetectado = false;
+
         while (p != null) {
-            token = token + p.toString();
-            corrente = a.p(corrente, p);
+            char c = p.getSimbolo();
 
-            if (corrente == null) return "erro";
+            if (c == ' ') {
+                if (erroDetectado) return "erro";
 
-            // Se atingir um estado final, retorna o token encontrado
-            if (a.getEstadosFinais().pertence(corrente)) {
-                return token.trim();
+                Estado proximoEstado = a.p(corrente, p);
+                if (proximoEstado != null && a.getEstadosFinais().pertence(proximoEstado)) {
+                    corrente = proximoEstado;
+                    return token.trim();
+                }
+                return "erro";
+            }
+
+            token = token + c;
+
+            if (!erroDetectado) {
+                Estado proximo = a.p(corrente, p);
+                if (proximo == null) {
+                    erroDetectado = true;
+                } else {
+                    corrente = proximo;
+                }
             }
             p = proximo(r);
         }
+
+        // Caso o arquivo termine sem um espaço final
+        if (erroDetectado) return "erro";
+        if (a.getEstadosFinais().pertence(corrente)) return token.trim();
+
         return "fim";
     }
 
